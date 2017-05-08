@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const dashboardRoutes: Route[] = [
     { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -11,6 +12,6 @@ const dashboardRoutes: Route[] = [
     CommonModule,
     RouterModule.forChild(dashboardRoutes)
   ],
-  declarations: []
+  declarations: [DashboardComponent]
 })
 export class DashboardModule { }
