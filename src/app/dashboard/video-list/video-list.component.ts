@@ -13,6 +13,10 @@ export class VideoListComponent implements OnInit {
   videoList: IVideo[];
   selectedVideo: IVideo;
 
+  constructor() { 
+      this.videoList = fakeVideoData;
+      this.selectedVideo = null;
+  }
   
   selected_handler(video) {
     console.log('videolist selecting video' + video.title)
@@ -22,10 +26,6 @@ export class VideoListComponent implements OnInit {
     }   else  {
       this.selectedVideo = video;
     }
-  }
-  constructor() { 
-      this.videoList = fakeVideoData;
-      this.selectedVideo = null;
   }
 
   ngOnInit() {

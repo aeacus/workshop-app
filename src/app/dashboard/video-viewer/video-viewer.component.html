@@ -6,4 +6,5 @@
         border: 1px solid black;
     }
 </style>
-<div>Current Title: {{currentVideo?.title}}</div>
+<div *ngIf="currentVideo">Current Title: {{currentVideo?.title}}</div>
+<div *ngIf="!currentVideo">No video selected</div>

@@ -1,13 +1,19 @@
 <p>
-  my dashboard works!
+    my dashboard works!
 </p>
-<video-list
-    (selectVideo)="setSelectedVideo($event)"
-        >
-    
-</video-list>
-<video-viewer
-    [currentVideo]="selectedVideo"
-    
-    ></video-viewer>
-<stat-filters></stat-filters>
+<div class="container">
+    <div class="row">
+        <div class="col m3">
+            <video-list (selectVideo)="setSelectedVideo($event)">
+            </video-list>
+        </div>
+        <div class="col m6">
+            <div class="row">
+                <video-viewer [currentVideo]="selectedVideo"></video-viewer>
+            </div>
+        </div>
+        <div class="col m3">
+            <stat-filters></stat-filters>
+        </div>
+    </div>
+</div>
