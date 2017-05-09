@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IVideo } from '../../api-types';
 
 @Component({
   selector: 'video-viewer',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoViewerComponent implements OnInit {
 
+  @Input() currentVideo: IVideo
+  
   constructor() { }
 
   ngOnInit() {

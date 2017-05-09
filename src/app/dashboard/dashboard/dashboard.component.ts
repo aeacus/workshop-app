@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IVideo, fakeVideoData } from '../../api-types';
 
 @Component({
   selector: 'dashboard',
@@ -6,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  selectedVideo: IVideo;
 
-  constructor() { }
+  setSelectedVideo(video: IVideo) {
+    console.log('dashboard selecting video' + video.title)
+    this.selectedVideo = video;
+  }
+
+  constructor() {
+    this.selectedVideo = null;
+  }
 
   ngOnInit() {
   }

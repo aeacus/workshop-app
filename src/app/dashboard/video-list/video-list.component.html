@@ -1,3 +1,10 @@
-<p>
-  video-list works!
-</p>
+<ul>
+    <li *ngFor="let video of videoList; let i = index"
+        [class.highlight-class]="video==selectedVideo" 
+        (click)="selected_handler(video)"
+    >
+        <div>{{video.title}}</div>
+        <div>{{video.author}}</div>
+        <div>{{video.id}}</div>
+    </li>
+</ul>

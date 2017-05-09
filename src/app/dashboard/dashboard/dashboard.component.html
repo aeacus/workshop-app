@@ -1,6 +1,13 @@
 <p>
   my dashboard works!
 </p>
-<video-list></video-list>
-<video-viewer></video-viewer>
+<video-list
+    (selectVideo)="setSelectedVideo($event)"
+        >
+    
+</video-list>
+<video-viewer
+    [currentVideo]="selectedVideo"
+    
+    ></video-viewer>
 <stat-filters></stat-filters>
