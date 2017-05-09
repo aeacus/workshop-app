@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IVideo, fakeVideoData } from '../../api-types';
+import { IVideo } from '../../api-types';
 
 @Component({
   selector: 'dashboard',

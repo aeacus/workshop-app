@@ -1,6 +1,8 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { IVideo, fakeVideoData } from '../../api-types';
+import { VideoListService } from '../../video-list.service';
+
+import { IVideo } from '../../api-types';
 
 @Component({
   selector: 'video-list',
@@ -10,11 +12,11 @@ import { IVideo, fakeVideoData } from '../../api-types';
 export class VideoListComponent implements OnInit {
   @Output() selectVideo = new EventEmitter<IVideo>()
 
-  videoList: IVideo[];
+  videoListService: VideoListService;
   selectedVideo: IVideo;
 
-  constructor() { 
-      this.videoList = fakeVideoData;
+  constructor(vs: VideoListService) { 
+      this.videoListService = vs;
       this.selectedVideo = null;
   }
   

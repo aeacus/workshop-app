@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let video of videoList; let i = index"
+    <li *ngFor="let video of videoListService.videos(); let i = index"
         [class.highlight-class]="video==selectedVideo" 
         (click)="selected_handler(video)"
     >
