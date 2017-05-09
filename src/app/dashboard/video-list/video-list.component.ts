@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { VideoListService } from '../../video-list.service';
 
@@ -14,14 +15,17 @@ export class VideoListComponent implements OnInit {
 
   videoListService: VideoListService;
   selectedVideo: IVideo;
+  pageTitle: any;
 
-  constructor(vs: VideoListService) { 
+  constructor(t: Title, vs: VideoListService) { 
+      this.pageTitle = t;
       this.videoListService = vs;
       this.selectedVideo = null;
   }
   
   selected_handler(video) {
     console.log('videolist selecting video' + video.title)
+    this.pageTitle.setTitle(video.title);
     this.selectVideo.emit(video);
     if (this.selectedVideo == video) {
       this.selectedVideo = null;
