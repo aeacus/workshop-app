@@ -6,8 +6,8 @@ import { VideoListComponent } from './video-list/video-list.component';
 import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 
-const dashboardRoutes: Route[] = [
-    { path: '', component: DashboardComponent, pathMatch: 'full' },
+const dashboardRoutes = [
+    { path: '', component: DashboardComponent, pathMatch: 'full' }
   ]
 
 @NgModule({
