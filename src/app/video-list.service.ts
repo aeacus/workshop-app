@@ -16,14 +16,14 @@ const API_URL = "/assets";
 @Injectable()
 export class VideoListService {
 
-  videosNew: Observable<IVideo[]>; // type this as an IVideo?
+  videos: Observable<IVideo[]>; // type this as an IVideo?
 
   constructor(private http: Http) { 
     //this.videoList = fakeVideoData;
       
     const videoObs = this.http.get(API_URL + '/videos.json');
 
-    this.videosNew = videoObs
+    this.videos = videoObs
       .do(res => console.log(res))
       .map(res => res.json());
   }

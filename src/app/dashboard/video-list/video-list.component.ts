@@ -1,8 +1,8 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
 
 import { VideoListService } from '../../video-list.service';
-
 import { IVideo } from '../../api-types';
 
 @Component({
@@ -11,27 +11,22 @@ import { IVideo } from '../../api-types';
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
-  @Output() selectVideo = new EventEmitter<IVideo>()
+  @Output() selectVideo = new EventEmitter<IVideo>();
 
+  videoList: Observable<IVideo[]>;
   videoListService: VideoListService;
   selectedVideo: IVideo;
-  pageTitle: any;
 
-  constructor(t: Title, vs: VideoListService) { 
-      this.pageTitle = t;
+  constructor(vs: VideoListService) { 
       this.videoListService = vs;
       this.selectedVideo = null;
+      this.videoListService.videos
+      .do(videos => this.videoList.emit(videos));
   }
   
   selected_handler(video) {
-    console.log('videolist selecting video' + video.title)
-    this.pageTitle.setTitle(video.title);
+    console.log('videolist selecting video' + video.title);
     this.selectVideo.emit(video);
-    if (this.selectedVideo == video) {
-      this.selectedVideo = null;
-    }   else  {
-      this.selectedVideo = video;
-    }
   }
 
   ngOnInit() {

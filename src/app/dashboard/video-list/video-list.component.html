@@ -1,10 +1,6 @@
-<ul>
-    <li *ngFor="let video of videoListService.videosNew | async; let i = index"
-        [class.highlight-class]="video==selectedVideo" 
-        (click)="selected_handler(video)"
+<video-list-view 
+    [selectedVideo]="selectedVideo"
+    [videoList]="videoList | async"
+    (selectVideo)="selected_handler($event)"
     >
-        <div>{{video.title}}</div>
-        <div>{{video.author}}</div>
-        <div>{{video.id}}</div>
-    </li>
-</ul>
+</video-list-view>

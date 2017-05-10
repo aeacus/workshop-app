@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VideoListComponent } from './video-list/video-list.component';
+import { VideoListViewComponent } from './video-list/video-list.view.component';
+
 import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 
@@ -20,6 +22,6 @@ const dashboardRoutes = [
     RouterModule.forChild(dashboardRoutes)
   ],
   providers: [VideoListService, VideoListLoaderService],
-  declarations: [DashboardComponent, VideoListComponent, VideoViewerComponent, StatFiltersComponent]
+  declarations: [DashboardComponent, VideoListComponent, VideoListViewComponent, VideoViewerComponent, StatFiltersComponent]
 })
 export class DashboardModule { }
