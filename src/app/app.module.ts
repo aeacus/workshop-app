@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { VideoListService } from './video-list.service'
-
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +16,7 @@ import { VideoListService } from './video-list.service'
     HttpModule,
     AppRoutingModule
   ],
-  providers: [VideoListService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

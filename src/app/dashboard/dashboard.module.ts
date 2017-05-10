@@ -7,6 +7,8 @@ import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 
 import { VideoListService } from '../video-list.service'
+import { VideoListLoaderService } from '../video-list-loader.service'
+
 
 const dashboardRoutes = [
     { path: '', component: DashboardComponent, pathMatch: 'full' }
@@ -17,7 +19,7 @@ const dashboardRoutes = [
     CommonModule,
     RouterModule.forChild(dashboardRoutes)
   ],
-  providers: [VideoListService],
+  providers: [VideoListService, VideoListLoaderService],
   declarations: [DashboardComponent, VideoListComponent, VideoViewerComponent, StatFiltersComponent]
 })
 export class DashboardModule { }
