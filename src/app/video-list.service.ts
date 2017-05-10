@@ -9,22 +9,17 @@ import 'rxjs/add/operator/do';
 
 //import { VideoListLoaderService } from './video-list-loader-service';
 
-import { IVideo, fakeVideoData } from './api-types';
+import { IVideo } from './api-types';
 
 const API_URL = "/assets";
 
 @Injectable()
 export class VideoListService {
-  videoList: IVideo[]; 
 
-  videosNew: Observable<{}[]>; // type this as an IVideo?
-
-  videos() {
-    return this.videoList;
-  }
+  videosNew: Observable<IVideo[]>; // type this as an IVideo?
 
   constructor(private http: Http) { 
-    this.videoList = fakeVideoData;
+    //this.videoList = fakeVideoData;
       
     const videoObs = this.http.get(API_URL + '/videos.json');
 
